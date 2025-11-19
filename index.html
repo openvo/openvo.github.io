@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="OpenVO">
+  <meta name="keywords" content="OpenVO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> OpenVO </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+  <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .rcorners1 {
+      border-radius: 10px;
+      background: #ffffffd0;
+      padding: 5px;
+      font-size: 120%;
+      color: #5c5c5c;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">OpenVO <br />
+              <p class="title is-3 publication-title">Open-World Visual Odometry with Temporal Dynamics Awareness
+              <!-- <p class="title is-3 publication-title">CVPR 2026</p> -->
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://phucnda.github.io/">Phuc Nguyen</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/anh-nn01">Anh N. Nhu</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.cs.umd.edu/~lin/">Ming C. Lin</a><sup></sup>,
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block" style="margin-right: 1em;"><sup></sup>University of Maryland, College Park</span>
+            <div class="is-size-5 publication-authors"></div>
+              <span class="author-block" style="margin-right: 1em;"><sup>*</sup>Equal contribution</span>
+            </div>
+            <!-- Link-->
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark" disabled>
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>arXiv</span>
+              </a>
+            </span>
+
+            <!-- <span class="link-block">
+              <a href="assets/Open3DIS_supplementary.pdf" class="external-link button is-normal is-rounded is-dark" disabled>
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supplementary</span>
+              </a>
+            </span> -->
+            
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark" disabled>
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <span class="link-block">
+              <a href="https://github.com/PhucNDA/OpenVO" class="external-link button is-normal is-rounded is-dark" enabled>
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            <!-- <span class="link-block">
+              <a href="https://www.youtube.com/watch?v=xpfhE8iy0C0" class="external-link button is-normal is-rounded is-dark" disabled>
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span> -->
+                </a>
+            </span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="assets/teaser.png" style="max-width:100%" />
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>
+                TL;DR:  We introduce OpenVO, a novel framework for Open-world Visual Odometry (VO) with temporal awareness under limited input conditions.
+              </b>
+              <br /><br />
+
+              OpenVO effectively estimates real-world–scale ego-motion from monocular dashcam footage with varying observation rates and uncalibrated cameras, enabling robust trajectory dataset construction from rare driving events recorded in dashcam.
+              Existing VO methods are trained on fixed observation frequency (e.g., 10Hz or 12Hz), completely overlooking temporal dynamics information. Many prior methods also require calibrated cameras with known intrinsic parameters. 
+              Consequently, their performance degrades when (1) deployed under unseen observation frequencies or (2) applied to uncalibrated cameras. These significantly limit their generalizability to many downstream tasks, such as extracting trajectories from dashcam footage.
+              To address these challenges, OpenVO (1) explicitly encodes temporal dynamics information within a two-frame pose regression framework and (2) leverages 3D geometric priors derived from foundation models. We validate our method on three major autonomous-driving benchmarks -- KITTI, nuScenes, and Argoverse 2 -- achieving more than 20% performance improvement over state-of-the-art approaches. 
+              Under varying observation rate settings, our method is significantly more robust, achieving 46%–92% lower errors across all metrics.
+              These results demonstrate the versatility of OpenVO for real-world 3D reconstruction and diverse downstream applications.            </p>
+                
+          </div>
+        </div>
+      </div>
+
+      <!--Method-->
+
+      <br /><br />
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Method</h2>
+          
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="assets/model.png" style="max-width:100%" />
+              </div>
+            </div>
+            <div class="content has-text-justified">
+            <p>
+              We propose a novel temporal-dynamics-informed, geometry-aware visual odometry system. Our method takes consecutive dashcam frames as input and extracts both temporal and geometric representations for robust egomotion estimation. The Time-Aware Flow Encoder leverages a Differentiable 2D-Guided 3D Flow module and time-conditioned embeddings to model motion dynamics across varying observation rates, while the Geometry-Aware Context Encode incorporates metric depth and intrinsic priors to build a consistent 3D geometry structure of the scene. Finally, the World-Coordinate Egomotion Decoder predicts accurate world-coordinate egomotion trajectories from the fused dynamic-geometric representation. 
+            </p>
+          </div>
+          </div>
+        </div>
+        </div>
+
+          
+      <br /><br />
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Analysis</h2>
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="assets/quanti.png" style="max-width:100%" />
+                </div>
+                </div>
+                <div class="content has-text-justified">
+                <p>
+                  Generalizability results. Comparison with existing methods on three large-scale driving benchmarks using standard metrics: translation, rotation, absolute trajectory, and scale error. OpenVO is trained exclusively on nuScenes and evaluated on KITTI and Argoverse 2 with unseen camera setups, as well as unseen regions of nuScenes, to assess cross-domain generalization.
+                </p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br></br>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Qualitative Results</h2>
+          
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="assets/quali_1.png" style="max-width:100%" />
+              </div>
+            </div>
+            <div class="content has-text-justified">
+            <p>
+              Qualitative of Stereo benchmark on Argoverse 2. Each row shows one example, including the input stereo image and the
+              reference metric depth. The stereo images in Argoverse 2 often provides low-quality or weakly constrained metric depth due to limited
+              disparity in long-range regions and visually challenging street scenes. This degradation leads to information loss and introduces uncertainty
+              into downstream VO estimation
+            </p>
+          </div>
+
+
+
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="assets/quali_2.png" style="max-width:100%" />
+              </div>
+              <div class="content has-text-justified">
+            <p>
+              Qualitative results on real-world captured videos. We present two examples, each accompanied by the corresponding RGB
+              frames and reference metric-depth images. Real-world videos commonly exhibit numerous environmental artifacts—such as noise, clutter,
+              and dynamic elements—which pose significant challenges for generalizability and real-world performance assessment. Below is the reference region for the first example
+
+            </p>
+              <div class="hero-body">
+                <img src="assets/quali_2_refer.png" style="max-width:100%" />
+              </div>
+            </div>
+            <div class="content has-text-justified">
+            <p>
+              The reference region for the first example.
+
+            </p>
+          </div>
+          
+          
+          </div>
+        </div>
+        </div>
+
+
+
+
+          </div>
+          </div>
+
+          <br /><br />
+          <h2 class="title is-3">BibTeX</h2>
+          <pre><code>
+              arxiv
+          </code></pre>
+        </div>
+        </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                  It borrows the source code of <a href="https://github.com/nerfies/nerfies.github.io">this website</a>.
+                  We would like to thank Utkarsh Sinha and Keunhong Park.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script> <!-- Resource jQuery -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+
+</html>
