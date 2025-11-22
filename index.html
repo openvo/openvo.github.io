@@ -155,6 +155,18 @@
 
       <br /><br />
       <div class="container is-max-desktop">
+              <div class="hero-body">
+                <video controls autoplay muted loop style="max-width: 100%;">
+                  <source src="assets/openvo_quali_full.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+              </div>
+            </div>
+        </div>
+
+
+      <br /><br />
+      <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Method</h2>
@@ -187,6 +199,17 @@
                 <div class="content has-text-justified">
                 <p>
                   Generalizability results. Comparison with existing methods on three large-scale driving benchmarks using standard metrics: translation, rotation, absolute trajectory, and scale error. OpenVO is trained exclusively on nuScenes and evaluated on KITTI and Argoverse 2 with unseen camera setups, as well as unseen regions of nuScenes, to assess cross-domain generalization.
+                </p>
+                <div style="display:flex; justify-content:center; gap:20px;">
+                    <img src="assets/ablate_rat.png" style="width:45%;">
+                    <img src="assets/ablate_rat1.png" style="width:60%;">
+                </div>
+                </div>
+                <div class="content has-text-justified">
+                <p>
+                  <strong>Left:</strong> Ablation on Varying Inference Observation Rates. ‡ indicates ZeroVO uses the same Metric Depth and Intrinsic priors from foundation models as OpenVO. Green cells denote OpenVO (left) improved performance of over existing method (right). Our OpenVO is significantly more robust to observation rate variations, consistently reducing VO errors by 46% to 92% across different metrics and benchmark settings.
+                  <br></br>
+                  <strong>Right:</strong> Ablation on Training Observation Frequency. Shaded row : OpenVO trained without proposed Time Condition Layers; Other rows : OpenVO trained with proposed Time Condition Layers. ∗ indicates that OpenVO uses 12 Hz as the fixed inference temporal condition, regardless of the dataset
                 </p>
                 </div>
             </div>
@@ -235,9 +258,19 @@
 
             </p>
           </div>
-          
-          
           </div>
+
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <img src="assets/quali_hd.png" style="max-width:100%" />
+              </div>
+            </div>
+            <div class="content has-text-justified">
+            <p>
+            Qualitative results of Global HDMap reconstruction results produced by OpenVO + modified monocular VectorMapNet. Local mapping outputs are gradually fused through OpenVO’s ego-to-world pose estimates, producing a coherent global HD-map reconstruction of the full scenario. We would like to refer to our papers for further details of the OpenVO-enabled monocular-based global map reconstruction.
+            </p>
+          </div>
+
         </div>
         </div>
 
