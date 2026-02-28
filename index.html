@@ -63,6 +63,82 @@
             <div class="is-size-5 publication-authors"></div>
               <span class="author-block" style="margin-right: 1em;"><sup>*</sup>Equal contribution</span>
             </div> 
+
+          <style>
+            .dropdown {
+              position: relative;
+              display: inline-block;
+              font-family: sans-serif;
+            }
+            .dropdown-trigger {
+              cursor: pointer;
+              font-size: 1.05em;
+              color: #007bff;
+              font-weight: 600;
+              text-decoration: underline;
+            }
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background: #ffffff;
+              min-width: 320px;
+              border-radius: 12px;
+              padding: 16px;
+              box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+              z-index: 10;
+              transform: translateY(8px);
+            }
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            .author {
+              margin-bottom: 16px;
+              padding-bottom: 12px;
+              border-bottom: 1px solid #eaeaea;
+            }
+            .author:last-child {
+              margin-bottom: 0;
+              border-bottom: none;
+              padding-bottom: 0;
+            }
+            .author h3 {
+              margin: 0 0 6px 0;
+              font-size: 1.1em;
+              color: #333;
+            }
+            .author p {
+              margin: 0;
+              line-height: 1.4;
+              color: #555;
+              font-size: 0.95em;
+            }
+          </style>
+
+          <div class="dropdown">
+            <span class="dropdown-trigger">Hover to view author contribution details</span>
+            <div class="dropdown-content">
+              <div class="author">
+                <h3>Phuc Nguyen</h3>
+                <p>
+                  Architecture design, model implementation & training, evaluation, data processing, paper writing, 
+                  demo preparation.
+                </p>
+              </div>
+              <div class="author">
+                <h3>Anh Nhu</h3>
+                <p>
+                  Technical discussion, data processing, SLAM-based pipeline, paper writing, demo preparation.
+                </p>
+              </div>
+              <div class="author">
+                <h3>Ming Lin</h3>
+                <p>
+                  Technical advisory and discussion, paper writing.
+                </p>
+              </div>
+            </div>
+          </div>
+          <br></br>
             <!-- Link-->
             <span class="link-block">
               <a href="https://arxiv.org/abs/2602.19035" class="external-link button is-normal is-rounded is-dark">
